@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gmail Promotion</title>
+  <link rel="stylesheet" href="css/style.css"> 
+  <link rel="stylesheet" href="css/salesforce-lightning-design-system.min.css">
+</head>
+<body class="slds-scope">
+  <div id="block-settings" class="slds-p-around_medium slds-box slds-theme_default">
+  
+
+
+    <h1 id="main-heading-manual" class="slds-text-heading_medium" style="padding-bottom: 12px;"><b>Gmail Promotion</b></h1>
+
+
+<!--**********************  Promotion ************************ -->   
+
+
+
+    <!-- Feed Tracking -->
+                      <!-- Filter products from variable Checkbox -->
+                      <div class="slds-form-element">
+                        <label class="slds-checkbox_toggle slds-grid" style="align-items: center;">
+                          <span class="slds-form-element__label slds-m-bottom_none">Use promotion text from variable?</span>
+                          <input type="checkbox" id="promotionfromvariable" class="slds-checkbox" />
+                          <span class="slds-checkbox_faux_container">
+                            <span class="slds-checkbox_faux"></span>
+                            <span class="slds-checkbox_on">Enabled</span>
+                            <span class="slds-checkbox_off">Disabled</span>
+                          </span>
+                                                    <!-- Tooltip-->
+                                                    <div class="slds-m-left_xx-small slds-tooltip-trigger slds-tooltip-trigger_hover" style="display: inline-block; position: relative;">
+                                                      <button class="slds-button slds-button_icon slds-button_icon-border-filled" style="border:0px;" aria-describedby="tooltip-1">
+                                                        <span class="slds-button__icon slds-icon_xx-small" aria-hidden="true">
+                                                          <svg class="slds-button__icon slds-icon_xx-small" aria-hidden="true">
+                                                            <use xlink:href="symbols.svg#info"></use>
+                                                          </svg>
+                                                        </span>
+                                                        <span class="slds-assistive-text">Help Text</span>
+                                                      </button>
+                                                      <span class="slds-popover slds-popover_tooltip tooltip" role="tooltip" id="tooltip-1" 
+                                                            style="display: none; position: absolute; top: -30px; left: -10px; 
+                                                                  min-width: 300px; max-width: 300px; white-space: normal; padding: 8px; 
+                                                                  pointer-events: auto; z-index: 100;">
+                                                        <div class="slds-popover__body">
+                                                          <b><u>Promotion from variable</u></b><br>
+                                                          Enabling this feature will allow you to type in an AMPscript variable that you want to use as the promotion text.<br><br>
+                                                          i.e. you have a variable called @mypromotion that you want to use - Then you enable the "Use promotion text from variable" and enter "mypromotion" in the promotion text field.
+                                                          <br><br>
+                                                          Keep in mind, the variable you type MUST be set before this block. Ideally you can place this Gmail promotion block at the bottom of your email.
+                                                        </div>
+                                                      </span>
+                                                    </div>
+                                                    <!-- /Tooltip-->
+                                  </label>
+                                </div>
+
+
+                    <label class="slds-form-element__label" for="promotion">Promotion text:
+                                                                    <!-- Tooltip-->
+                                                                    <div class="slds-m-left_xx-small slds-tooltip-trigger slds-tooltip-trigger_hover" style="display: inline-block; position: relative;">
+                                                                      <button class="slds-button slds-button_icon slds-button_icon-border-filled" style="border:0px;" aria-describedby="tooltip-1">
+                                                                        <span class="slds-button__icon slds-icon_xx-small" aria-hidden="true">
+                                                                          <svg class="slds-button__icon slds-icon_xx-small" aria-hidden="true">
+                                                                            <use xlink:href="symbols.svg#info"></use>
+                                                                          </svg>
+                                                                        </span>
+                                                                        <span class="slds-assistive-text">Help Text</span>
+                                                                      </button>
+                                                                      <span class="slds-popover slds-popover_tooltip tooltip" role="tooltip" id="tooltip-1" 
+                                                                            style="display: none; position: absolute; top: -30px; left: -10px; 
+                                                                                  min-width: 300px; max-width: 300px; white-space: normal; padding: 8px; 
+                                                                                  pointer-events: auto; z-index: 100;">
+                                                                        <div class="slds-popover__body">
+                                                                          <b><u>Promotion text</u></b><br>
+                                                                          Enter the promotiontext.<br><br>
+                                                                          This field cannot be empty, a promotion text is required for the block to work.
+                                                                          <br>
+                                                                          Best practices:<br>
+                                                                          Avoid using more than 4 words or full sentences as it competes with your subject line.<br>
+                                                                          Be specific. Identify the details of your promotion, such as the discount percentage.
+                                                                          
+                                                                        </div>
+                                                                      </span>
+                                                                    </div>
+                                                                    <!-- /Tooltip-->
+                    </label>
+                    <div class="slds-form-element__control" style="display: flex; align-items: center;">
+                    <span id="promotionatsymbol" style="margin-right: 5px;">@</span>
+                    <input type="text" id="promotion" class="slds-input">
+                    </div>
+<br>
+
+
+
+<!--**********************  Discount code ************************ -->   
+
+<div class="slds-grid slds-m-bottom_x-small" style="align-items: center;">
+  <h2 class="slds-text-heading_medium slds-m-right_medium">Discount code</h2>
+
+          <!-- Toggle discount code -->
+          <div class="slds-form-element">
+            <label class="slds-checkbox_toggle slds-grid" style="align-items: center; margin-bottom: 0;">
+              <input type="checkbox" id="discountcodetoggle" class="slds-checkbox" />
+              <span class="slds-checkbox_faux_container">
+                <span class="slds-checkbox_faux"></span>
+                <span class="slds-checkbox_on">Enabled</span>
+                <span class="slds-checkbox_off">Disabled</span>
+              </span>
+
+              <!-- Tooltip -->
+              <div class="slds-m-left_xx-small slds-tooltip-trigger slds-tooltip-trigger_hover" style="display: inline-block; position: relative;">
+                <button class="slds-button slds-button_icon slds-button_icon-border-filled" style="border:0px;" aria-describedby="tooltip-1">
+                  <span class="slds-button__icon slds-icon_xx-small" aria-hidden="true">
+                    <svg class="slds-button__icon slds-icon_xx-small" aria-hidden="true">
+                      <use xlink:href="symbols.svg#info"></use>
+                    </svg>
+                  </span>
+                  <span class="slds-assistive-text">Help Text</span>
+                </button>
+                <span class="slds-popover slds-popover_tooltip tooltip" role="tooltip" id="tooltip-1" 
+                      style="display: none; position: absolute; top: -30px; left: -10px; 
+                            min-width: 300px; max-width: 300px; white-space: normal; padding: 8px; 
+                            pointer-events: auto; z-index: 100;">
+                  <div class="slds-popover__body">
+                    <b><u>Discount code</u></b><br><br>
+                    Enabling this allows you to enter a discount code to be shown in the inbox for this promotion.
+                  </div>
+                </span>
+              </div>
+              <!-- /Tooltip -->
+            </label>
+          </div>
+        </div>
+       <!-- /Toggle discount code -->
+       <div id="discountwrapper" style="display: none;">
+                      <!-- Discount code from variable Checkbox -->
+                      <div class="slds-form-element">
+                        <label class="slds-checkbox_toggle slds-grid" style="align-items: center;">
+                          <span class="slds-form-element__label slds-m-bottom_none">Use discount code from variable?</span>
+                          <input type="checkbox" id="discountcodefromvariable" class="slds-checkbox" />
+                          <span class="slds-checkbox_faux_container">
+                            <span class="slds-checkbox_faux"></span>
+                            <span class="slds-checkbox_on">Enabled</span>
+                            <span class="slds-checkbox_off">Disabled</span>
+                          </span>
+                                                    <!-- Tooltip-->
+                                                    <div class="slds-m-left_xx-small slds-tooltip-trigger slds-tooltip-trigger_hover" style="display: inline-block; position: relative;">
+                                                      <button class="slds-button slds-button_icon slds-button_icon-border-filled" style="border:0px;" aria-describedby="tooltip-1">
+                                                        <span class="slds-button__icon slds-icon_xx-small" aria-hidden="true">
+                                                          <svg class="slds-button__icon slds-icon_xx-small" aria-hidden="true">
+                                                            <use xlink:href="symbols.svg#info"></use>
+                                                          </svg>
+                                                        </span>
+                                                        <span class="slds-assistive-text">Help Text</span>
+                                                      </button>
+                                                      <span class="slds-popover slds-popover_tooltip tooltip" role="tooltip" id="tooltip-1" 
+                                                            style="display: none; position: absolute; top: -30px; left: -10px; 
+                                                                  min-width: 300px; max-width: 300px; white-space: normal; padding: 8px; 
+                                                                  pointer-events: auto; z-index: 100;">
+                                                        <div class="slds-popover__body">
+                                                          <b><u>Discount code from variable</u></b><br>
+                                                          Enabling this feature will allow you to type in an AMPscript variable that you want to use as the discount code.<br><br>
+                                                          i.e. you have a variable called @mydiscountcode that you want to use - Then you enable the "Use discount code from variable" and enter "mydiscountcode" in the discount code field.
+                                                          <br><br>
+                                                          Keep in mind, the variable you type MUST be set before this block. Ideally you can place this Gmail promotion block at the bottom of your email.
+                                                        </div>
+                                                      </span>
+                                                    </div>
+                                                    <!-- /Tooltip-->
+                                  </label>
+                                </div>
+
+
+                    <label class="slds-form-element__label" for="discountcode">Discount code:
+                                                                    <!-- Tooltip-->
+                                                                    <div class="slds-m-left_xx-small slds-tooltip-trigger slds-tooltip-trigger_hover" style="display: inline-block; position: relative;">
+                                                                      <button class="slds-button slds-button_icon slds-button_icon-border-filled" style="border:0px;" aria-describedby="tooltip-1">
+                                                                        <span class="slds-button__icon slds-icon_xx-small" aria-hidden="true">
+                                                                          <svg class="slds-button__icon slds-icon_xx-small" aria-hidden="true">
+                                                                            <use xlink:href="symbols.svg#info"></use>
+                                                                          </svg>
+                                                                        </span>
+                                                                        <span class="slds-assistive-text">Help Text</span>
+                                                                      </button>
+                                                                      <span class="slds-popover slds-popover_tooltip tooltip" role="tooltip" id="tooltip-1" 
+                                                                            style="display: none; position: absolute; top: -30px; left: -10px; 
+                                                                                  min-width: 300px; max-width: 300px; white-space: normal; padding: 8px; 
+                                                                                  pointer-events: auto; z-index: 100;">
+                                                                        <div class="slds-popover__body">
+                                                                          <b><u>Discount code</u></b><br><br>
+                                                                          Enter a discount code to be displayed.<br>
+                                                                          Only use a discount code if you have it featured in the email. Don't repurpose this space, as it always says "Code" before the text.
+
+                                                                        </div>
+                                                                      </span>
+                                                                    </div>
+                                                                    <!-- /Tooltip-->
+                    </label>
+                    <div class="slds-form-element__control" style="display: flex; align-items: center;">
+                    <span id="discountcodeatsymbol" style="margin-right: 5px;">@</span>
+                    <input type="text" id="discountcode" class="slds-input">
+                    </div>
+          </div>
+
+<br>
+
+
+
+
+
+<!--**********************  Expiration time ************************ -->   
+
+
+
+
+<div class="slds-grid slds-m-bottom_x-small" style="align-items: center;">
+  <h2 class="slds-text-heading_medium slds-m-right_medium">Promotion expiration</h2>
+  
+          <!-- Toggle expiration time -->
+          <div class="slds-form-element">
+            <label class="slds-checkbox_toggle slds-grid" style="align-items: center; margin-bottom: 0;">
+              <input type="checkbox" id="expirationtoggle" class="slds-checkbox" />
+              <span class="slds-checkbox_faux_container">
+                <span class="slds-checkbox_faux"></span>
+                <span class="slds-checkbox_on">Enabled</span>
+                <span class="slds-checkbox_off">Disabled</span>
+              </span>
+
+              <!-- Tooltip -->
+              <div class="slds-m-left_xx-small slds-tooltip-trigger slds-tooltip-trigger_hover" style="display: inline-block; position: relative;">
+                <button class="slds-button slds-button_icon slds-button_icon-border-filled" style="border:0px;" aria-describedby="tooltip-1">
+                  <span class="slds-button__icon slds-icon_xx-small" aria-hidden="true">
+                    <svg class="slds-button__icon slds-icon_xx-small" aria-hidden="true">
+                      <use xlink:href="symbols.svg#info"></use>
+                    </svg>
+                  </span>
+                  <span class="slds-assistive-text">Help Text</span>
+                </button>
+                <span class="slds-popover slds-popover_tooltip tooltip" role="tooltip" id="tooltip-1" 
+                      style="display: none; position: absolute; top: -30px; left: -10px; 
+                            min-width: 300px; max-width: 300px; white-space: normal; padding: 8px; 
+                            pointer-events: auto; z-index: 100;">
+                  <div class="slds-popover__body">
+                    <b><u>Promotion Expiration</u></b><br><br>
+                    Enable this feature allows you to show the expiration of the promotion in the Gmail promotions tab inbox.<br>
+                    It allows the promotion to be showed at the top of a bundle again when the offer is about to expire.<br>
+                    <br><br>
+                    Note: The expiration will only be shown in Gmail inbox once it is 2 days or less from expiration
+                  </div>
+                </span>
+              </div>
+              <!-- /Tooltip -->
+            </label>
+          </div>
+        </div>
+       <!-- /Toggle expiration time -->
+  <div id="expirationwrapper" style="display: none;">
+      <!-- expirationtime from variable Checkbox -->
+      <div class="slds-form-element">
+        <label class="slds-checkbox_toggle slds-grid" style="align-items: center;">
+          <span class="slds-form-element__label slds-m-bottom_none">Use expiration time from variable?</span>
+          <input type="checkbox" id="expirationfromvariable" class="slds-checkbox" />
+          <span class="slds-checkbox_faux_container">
+            <span class="slds-checkbox_faux"></span>
+            <span class="slds-checkbox_on">Enabled</span>
+            <span class="slds-checkbox_off">Disabled</span>
+          </span>
+                                    <!-- Tooltip-->
+                                    <div class="slds-m-left_xx-small slds-tooltip-trigger slds-tooltip-trigger_hover" style="display: inline-block; position: relative;">
+                                      <button class="slds-button slds-button_icon slds-button_icon-border-filled" style="border:0px;" aria-describedby="tooltip-1">
+                                        <span class="slds-button__icon slds-icon_xx-small" aria-hidden="true">
+                                          <svg class="slds-button__icon slds-icon_xx-small" aria-hidden="true">
+                                            <use xlink:href="symbols.svg#info"></use>
+                                          </svg>
+                                        </span>
+                                        <span class="slds-assistive-text">Help Text</span>
+                                      </button>
+                                      <span class="slds-popover slds-popover_tooltip tooltip" role="tooltip" id="tooltip-1" 
+                                            style="display: none; position: absolute; top: -30px; left: -10px; 
+                                                  min-width: 300px; max-width: 300px; white-space: normal; padding: 8px; 
+                                                  pointer-events: auto; z-index: 100;">
+                                        <div class="slds-popover__body">
+                                          <b><u>Expiration from variable</u></b><br>
+                                          Enabling this feature will allow you to type in an AMPscript variable that you want to use as the expiration date and time.<br><br>
+                                          i.e. you have a variable called @myexpiration that you want to use - Then you enable the "Use expiration time from variable" and enter "myexpiration" in the expiration date and time field.
+                                          <br><br>
+                                          Keep in mind, the variable you type MUST be set before this block. Ideally you can place this Gmail promotion block at the bottom of your email.
+                                          <br><br>
+                                          The format of your date MUST be exactly like this, adjust timezone as needed: <br>
+                                          2025-04-28T16:00:00+02:00<br>
+                                          YYYY-MM-DDTHH:mm:ssZ
+                                        </div>
+                                      </span>
+                                    </div>
+                                    <!-- /Tooltip-->
+                  </label>
+                </div>
+
+<div id="expirationvariablewrapper" style="display: none;">
+    <label class="slds-form-element__label" for="expirationvariable">Expiration date and time:
+                                                    <!-- Tooltip-->
+                                                    <div class="slds-m-left_xx-small slds-tooltip-trigger slds-tooltip-trigger_hover" style="display: inline-block; position: relative;">
+                                                      <button class="slds-button slds-button_icon slds-button_icon-border-filled" style="border:0px;" aria-describedby="tooltip-1">
+                                                        <span class="slds-button__icon slds-icon_xx-small" aria-hidden="true">
+                                                          <svg class="slds-button__icon slds-icon_xx-small" aria-hidden="true">
+                                                            <use xlink:href="symbols.svg#info"></use>
+                                                          </svg>
+                                                        </span>
+                                                        <span class="slds-assistive-text">Help Text</span>
+                                                      </button>
+                                                      <span class="slds-popover slds-popover_tooltip tooltip" role="tooltip" id="tooltip-1" 
+                                                            style="display: none; position: absolute; top: -30px; left: -10px; 
+                                                                  min-width: 300px; max-width: 300px; white-space: normal; padding: 8px; 
+                                                                  pointer-events: auto; z-index: 100;">
+                                                        <div class="slds-popover__body">
+                                                          <b><u>Expiration date and time</u></b><br><br>
+                                                          Enter the variable name that holds your expirationtime<br>
+                                                          The format of your date MUST be exactly like this, adjust timezone as needed: <br>
+                                                          2025-04-28T16:00:00+02:00<br>
+                                                          YYYY-MM-DDTHH:mm:ssZ
+                                                        </div>
+                                                      </span>
+                                                    </div>
+                                                    <!-- /Tooltip-->
+    </label>
+    <div class="slds-form-element__control" style="display: flex; align-items: center;">
+    <span style="margin-right: 5px;">@</span>
+    <input type="text" id="expirationvariable" class="slds-input">
+    </div>
+</div>
+    <!-- /expirationtime from variable Checkbox -->
+
+
+<!-- DateTime Picker -->
+<div id="expirationcalendarwrapper" style="display:none;">
+    <div class="slds-form-element slds-m-top_medium">
+      <label class="slds-form-element__label" for="expiration">Choose expiration date and time <br>(MM/DD/YYYY HH:mm AM/PM)
+                                                        <!-- Tooltip-->
+                                                        <div class="slds-m-left_xx-small slds-tooltip-trigger slds-tooltip-trigger_hover" style="display: inline-block; position: relative;">
+                                                          <button class="slds-button slds-button_icon slds-button_icon-border-filled" style="border:0px;" aria-describedby="tooltip-1">
+                                                            <span class="slds-button__icon slds-icon_xx-small" aria-hidden="true">
+                                                              <svg class="slds-button__icon slds-icon_xx-small" aria-hidden="true">
+                                                                <use xlink:href="symbols.svg#info"></use>
+                                                              </svg>
+                                                            </span>
+                                                            <span class="slds-assistive-text">Help Text</span>
+                                                          </button>
+                                                          <span class="slds-popover slds-popover_tooltip tooltip" role="tooltip" id="tooltip-1" 
+                                                                style="display: none; position: absolute; top: -30px; left: -10px; 
+                                                                      min-width: 300px; max-width: 300px; white-space: normal; padding: 8px; 
+                                                                      pointer-events: auto; z-index: 100;">
+                                                            <div class="slds-popover__body">
+                                                              <b><u>Expiration date and time</u></b><br>
+                                                                Pick the expirationdate and time of your promotion.
+                                                            </div>
+                                                          </span>
+                                                        </div>
+                                                        <!-- /Tooltip-->
+      </label>
+      <div class="slds-form-element__control">
+        <div class="slds-input-has-icon">
+          <input type="datetime-local" id="expiration" class="slds-input" />
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+    </div>
+    <br>
+    <img src="integrated_by_sjuresolutions.png" alt="Integrated by SJURE SOLUTIONS" style="width: 100%; max-width: 100%;">
+</div>
+
+
+
+
+
+
+
+  <script src="blocksdk.js"></script>
+  <script src="functions.js"></script>
+
+  
+</body>
+</html>
